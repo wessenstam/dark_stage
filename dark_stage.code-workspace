@@ -1,0 +1,8 @@
+{
+	"folders": [
+		{
+			"name": "SSH FS - local_alpine",
+			"uri": "ssh://local_alpine/"
+		}
+	]
+}
