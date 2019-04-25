@@ -57,9 +57,9 @@ NW2_DHCP_END="${IPV4_PREFIX}.253"
 
 # https://sewiki.nutanix.com/index.php/Hosted_POC_FAQ#I.27d_like_to_test_email_alert_functionality.2C_what_SMTP_server_can_I_use_on_Hosted_POC_clusters.3F
 #SMTP_SERVER_ADDRESS='nutanix-com.mail.protection.outlook.com'
-SMTP_SERVER_ADDRESS='mxb-002c1b01.gslb.pphosted.com'
-SMTP_SERVER_FROM='NutanixHostedPOC@nutanix.com'
-SMTP_SERVER_PORT=25
+#SMTP_SERVER_ADDRESS='mxb-002c1b01.gslb.pphosted.com'
+#SMTP_SERVER_FROM='NutanixHostedPOC@nutanix.com'
+#SMTP_SERVER_PORT=25
 
 # Authentication settings
 AUTH_SERVER='AutoDC' # default; TODO:180 refactor AUTH_SERVER choice to input file
