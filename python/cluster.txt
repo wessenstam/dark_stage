@@ -1,0 +1,10 @@
+# This file is used for holding the paramters need to stage the cluster
+# They should look like:
+# Cluster IP|Cluster password|Email Address|Network 1|Network 1 subnetmask|Network 1 Default GW|Network 1 VLAN ID|Network 2|Network 2 subnetmask|Network 2 Default GW|Network 2 VLAN ID|Image Server IP|Images location|Workshop number
+#
+# All paramters can be changed by within the application before starting the staging of teh cluster.
+#
+# Example:
+# 10.42.9.37|techX2019!|willem@nutanix.com|10.10.10.1|25|10.10.10.127|10|10.10.20.129|25|10.10.20.254|20|10.42.9.100|images|4
+#
+10.42.9.37|techX2019!|willem@nutanix.com|10.42.9.1|25|10.42.9.1|0|10.42.9.129|25|10.42.9.129|91|10.42.8.50|images|1

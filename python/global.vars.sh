@@ -42,17 +42,23 @@ DNS_SERVERS='8.8.8.8'
 NTP_SERVERS='0.us.pool.ntp.org,1.us.pool.ntp.org,2.us.pool.ntp.org,3.us.pool.ntp.org'
 
 # Network related settings
+NW1='NETWORK1'
+NW1_OCTET=(${NW1//./ })
+NW1_IPV4_PREFIX=${NW1_OCTET[0]}.${NW1_OCTET[1]}.${NW1_OCTET[2]}
 NW1_NAME='Primary'
-NW1_VLAN=0
-NW1_SUBNET="${IPV4_PREFIX}.1/25"
-NW1_DHCP_START="${IPV4_PREFIX}.50"
-NW1_DHCP_END="${IPV4_PREFIX}.125"
+NW1_VLAN='0'
+NW1_SUBNET="${NW1}/NW_1_SUBNET"
+NW1_DHCP_START="${NW1_IPV4_PREFIX}.50"
+NW1_DHCP_END="${NW1_IPV4_PREFIX}.125"
 
+NW2='NETWORK2'
+NW2_OCTET=(${NW2//./ })
+NW2_IPV4_PREFIX=${NW2_OCTET[0]}.${NW2_OCTET[1]}.${NW2_OCTET[2]}
 NW2_NAME='Secondary'
-NW2_VLAN=$(( ${OCTET[2]} * 10 + 1 ))
-NW2_SUBNET="${IPV4_PREFIX}.129/25"
-NW2_DHCP_START="${IPV4_PREFIX}.132"
-NW2_DHCP_END="${IPV4_PREFIX}.253"
+NW2_VLAN='NW_2_VLAN'
+NW2_SUBNET="${NW2}/NW_2_SUBNET"
+NW2_DHCP_START="${NW2_IPV4_PREFIX}.132"
+NW2_DHCP_END="${NW2_IPV4_PREFIX}.253"
 
 
 # https://sewiki.nutanix.com/index.php/Hosted_POC_FAQ#I.27d_like_to_test_email_alert_functionality.2C_what_SMTP_server_can_I_use_on_Hosted_POC_clusters.3F
@@ -90,8 +96,8 @@ QCOW2_REPOS=(\
        'https://s3.amazonaws.com/get-ahv-images/jq-linux64.dms' \
 )
 AUTODC_REPOS=(\
-     'http://IMAGE_SERVER/images/AutoDC.qcow2' \
-  'http://IMAGE_SERVER/images/AutoDC2.qcow2' \
+     'http://IMAGE_SERVER/IMAGE_LOCATION/AutoDC.qcow2' \
+  'http://IMAGE_SERVER/IMAGE_LOCATION/AutoDC2.qcow2' \
   'https://s3.amazonaws.com/get-ahv-images/AutoDC.qcow2' \
   'https://s3.amazonaws.com/get-ahv-images/AutoDC2.qcow2' \
 )
@@ -123,4 +129,7 @@ fi
 WC_ARG='--lines'
 if [[ ${OS_NAME} == 'Darwin' ]]; then
   WC_ARG='-l'
+fi
+if [[ ${OS_NAME} == 'alpine' ]]; then
+  WC_ARG="-l"
 fi

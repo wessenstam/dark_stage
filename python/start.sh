@@ -1,0 +1,1 @@
+cd /opt/github/stageworkshop && stage_workshop.sh -f stage_cluster.txt -w 1
