@@ -61,7 +61,7 @@ def check_file(file_name="cluster.txt"):
               )
     try:
         # Trying to see if we have a file called cluster.txt in the /opt location
-        file="/opt/"+file_name
+        file="/tmp/"+file_name
         with open(file,"r") as file_holder:
             for line in file_holder:
                 if not "#" in line:
@@ -79,7 +79,7 @@ def check_file(file_name="cluster.txt"):
         response=input("Do you have a file that holds the parameters needed for the script to work? [yes/no] ")
         if response.upper()=="YES":
             # Get the filel name
-            response_file=input("Please provide the name of the file in the /opt location... ")
+            response_file=input("Please provide the name of the file in the /tmp location... ")
             check_file(response_file)
         elif response.upper=="NO":
             # OK proceed with the ask of the parameters
@@ -137,30 +137,39 @@ def change_global_vars_sh():
 # This function is to create the batch command that needs to be run to stage the cluster
 #####################################################################################################################################################################
 def create_batch_command():
-    # We needto create a file stage_cluster.txt to have that in the command stage_workshop.sh -f stage_cluster.txt -w workshop_nr
+    # We needto create a file stage_cluster.txt to have that in the command stage_workshop.sh -f stage_cluster.txt -w workshop_nr if we haven't got one...
     file_name=open("/opt/github/stageworkshop/stage_cluster.txt","w+")
     file_name.write(dict_parameters["PE_Host"]+"|"+dict_parameters["PE_Password"]+"|"+dict_parameters["Email_address"])
     file_name.close()
-    # Create a script file so we can call it later on
-    file_name=open("/opt/start.sh","w+")
-    file_name.write("cd /opt/github/stageworkshop && stage_workshop.sh -f stage_cluster.txt -w "+dict_parameters["Workshop_nr"])
-    file_name.close()
-
 
 #####################################################################################################################################################################
 # This function is to show a last check and then run if yes or return to the show paramters when no
 #####################################################################################################################################################################
 def last_check():
+    list_parameters = ("Cluster VIP", "Cluster admin password", "Email address", "Network 1", "Network 1 Subnetmask(CIDR)",
+    "Network 1 Gateway", "Network 1 VLAN ID", "Network 2", "Network 2 Subnetmask (CIDR)", "Network 2 Gateway",
+    "Network 2 VLAN ID", "Images server", "Images Location")
+
     print(chr(27) + "[2J")
     print(30 * "*","LAST CHECK",30 * "*")
     print()
-    response=input("All good to go? If yes, we will start the staging script with the following paramters:")
+    print("We are going to use the following parameters to stage the cluster:")
+    print(72 * "-")
+    i = 0
+    for k, v in dict_parameters.items():
+        print(list_parameters[i] + ":", v)
+        if i == len(dict_parameters) - 2:
+            break
+        else:
+            i += 1
+    print("Workshop: " + list_workshop[int(dict_parameters["Workshop_nr"]) - 1])
     print()
     print(30 * "*","LAST CHECK",30 * "*")
     print()
+    response = input("All good to go? If yes, we will start the staging script...")
     if response.upper()=="YES":
         # Create the command to run and run it....
-        batch_command='cd /opt/github/stageworkshop && /bin/bash -x stage_workshop.sh -f stage_cluster.txt -w '+dict_parameters["Workshop_nr"]
+        batch_command='cd /opt/github/stageworkshop && /bin/bash stage_workshop.sh -f stage_cluster.txt -w '+dict_parameters["Workshop_nr"]
         command = os.popen(batch_command)
         print(command.read())
         print(command.close())
@@ -174,8 +183,8 @@ def last_check():
 #####################################################################################################################################################################
 def show_parameters():
     # Showing the data to the user to agree on the config. If not we need to understand what needs to be done.
-    list_parameters=("Cluster VIP","Cluster admin password","Email address","Network 1","Network 1 Subnetmask",
-                 "Network 1 Gateway","Network 1 VLAN ID","Network 2","Network 2 Subnetmask","Network 2 Gateway",
+    list_parameters=("Cluster VIP","Cluster admin password","Email address","Network 1","Network 1 Subnetmask(CIDR)",
+                 "Network 1 Gateway","Network 1 VLAN ID","Network 2","Network 2 Subnetmask (CIDR)","Network 2 Gateway",
                  "Network 2 VLAN ID","Images server","Images Location")
     while True:
         print(chr(27) + "[2J")
@@ -198,7 +207,6 @@ def show_parameters():
             break
         if move_forward.upper() == "YES":
             return
-            break
         else:
             print("You can only provide yes/Yes/YES or no/No/NO as an anwser...")
             show_parameters()
@@ -267,7 +275,7 @@ def change_network_1():
     print("Make your selection based on the following provided parameters for Network 1")
     print()
     print("a. Network 1: "+dict_parameters["Network_1"])
-    print("b. Network 1 Subnetmask: "+dict_parameters["Network_1_submask"])
+    print("b. Network 1 Subnetmask(CIDR): "+dict_parameters["Network_1_submask"])
     print("c. Network 1 gateway: "+dict_parameters["Network_1_gw"])
     print("d. Network 1 VLAN ID: "+dict_parameters["Network_1_vlan"])
     print("q. Back to main menu")
@@ -295,7 +303,7 @@ def change_network_2():
     print("Make your selection based on the following provided parameters for Network 2")
     print()
     print("a. Network 2: "+dict_parameters["Network_2"])
-    print("b. Network 2 Subnetmask: "+dict_parameters["Network_2_submask"])
+    print("b. Network 2 Subnetmask:(CIDR) "+dict_parameters["Network_2_submask"])
     print("c. Network 2 gateway: "+dict_parameters["Network_2_gw"])
     print("d. Network 2 VLAN ID: "+dict_parameters["Network_2_vlan"])
     print("q. Back to main menu")
@@ -365,11 +373,11 @@ def change_value(module,submod):
               "pe_host":"Cluster VIP",
               "pe_passwd":"Cluster password",
               "nw1":"network 1",
-              "nw1_sub":"network 1 subnetmask",
+              "nw1_sub":"network 1 subnetmask(CIDR)",
               "nw1_gw":"network 1 gateway",
               "nw1_vlan":"network 1 VLAN ID",
               "nw2":"network 2",
-              "nw2_sub":"network 2 subnetmask",
+              "nw2_sub":"network 2 subnetmask(CIDR)",
               "nw2_gw":"network 2 gateway",
               "nw2_vlan":"network 2 VLAN ID",
               "img_server":"images server",
@@ -444,7 +452,7 @@ def check_parameters():
 #####################################################################################################################################################################
 def get_workshops():
     # Get the workshop from the github repo
-    git_command='mkdir -p /opt/github && cd /opt/github && git clone https://github.com/wessenstam/stageworkshop.git'
+    git_command='mkdir -p /opt/github && cd /opt/github && git pull'
     command = os.popen(git_command)
     print(command.read())
     print(command.close())
@@ -496,8 +504,5 @@ last_check()
 # Just let the user knwo that we are ready and nothing to do anymore.....
 print("Staging script has been started. As the staging script runs autonomous, we are going to shutdown.....")
 
-# loop indefinite till CTRL+C
-input("Waiting...")
-
 # Cleaning up what we don't need anymore
-#clean_up()
+clean_up()
