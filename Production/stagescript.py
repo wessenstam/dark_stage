@@ -174,7 +174,7 @@ def last_check():
         print(command.read())
         print(command.close())
     elif response.upper()=="NO":
-        exit(0) # Need a way to get back to the Show paramters overview....
+        exit(0) # Need a way to get back to the Show parameters overview....
     else:
         last_check()
 
@@ -452,7 +452,7 @@ def check_parameters():
 #####################################################################################################################################################################
 def get_workshops():
     # Get the workshop from the github repo
-    git_command='mkdir -p /opt/github && cd /opt/github/stageworkshop && git pull'
+    git_command='cd /opt/github/stageworkshop && git pull'
     command = os.popen(git_command)
     print(command.read())
     print(command.close())
@@ -503,6 +503,8 @@ last_check()
 
 # Just let the user knwo that we are ready and nothing to do anymore.....
 print("Staging script has been started. As the staging script runs autonomous, we are going to shutdown.....")
+
+input("Waiting...")
 
 # Cleaning up what we don't need anymore
 clean_up()

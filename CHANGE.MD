@@ -40,6 +40,6 @@ After the script has run the following will be running from a network POV:
 <H3>To Do</H3>
 
 
-* After the last check, if not ok, the menu structure/flow is not working as expected
+* After the last check, if not ok, the menu structure/flow is not working as expected.
 * Get the DHCP settings for the networks 1 and 2 in the parameters. They are now static.
-
+* make it a NGINX server so we can also provide the container as a webserver for the images.

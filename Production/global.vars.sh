@@ -126,10 +126,4 @@ elif [[ $(uname -s) == 'Darwin' ]]; then
   OS_NAME='Darwin'
 fi
 
-WC_ARG='--lines'
-if [[ ${OS_NAME} == 'Darwin' ]]; then
-  WC_ARG='-l'
-fi
-if [[ ${OS_NAME} == 'alpine' ]]; then
-  WC_ARG="-l"
-fi
+WC_ARG='-l'
