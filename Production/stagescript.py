@@ -452,7 +452,7 @@ def check_parameters():
 #####################################################################################################################################################################
 def get_workshops():
     # Get the workshop from the github repo
-    git_command='mkdir -p /opt/github && cd /opt/github && git pull /opt/github/stageworkshop'
+    git_command='mkdir -p /opt/github && cd /opt/github/stageworkshop && git pull'
     command = os.popen(git_command)
     print(command.read())
     print(command.close())
