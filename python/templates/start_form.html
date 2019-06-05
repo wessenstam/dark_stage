@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dark site - Workshop staging</title>
+    <!-- Meta -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Nutanix UI">
+    <meta name="author" content="Prism Team">
+
+    <!-- Prevent cache -->
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+
+    <link href="../static/assets/styles/includes/css/prism-bootstrap.min.css"
+        rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="white">
+<center>
+    <table width="100%">
+        <tr>
+            <td colspan="3" bgcolor="#000000"><img src="../static/assets/images/common/logo.png" height="50%"><font color="#FFFFFF">&nbsp;&nbsp;Dark site workshop staging</font> </td>
+        </tr>
+    </table>
+<H2>Provide the information needed for the workshop</H2>
+    <form method="POST" action="/check">
+    <div>
+        <table>
+
+            <tr>
+                <th>Entity</th>
+                <th>Parameter</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td colspan="3"><hr></td>
+            </tr>
+            <tr>
+                <TD rowspan="3" valign="top">General cluster information</TD>
+                <td>VIP Address of the cluster</td><td>Value</td>
+            </tr>
+            <tr>
+                <td>admin password of the cluster</td><td>Value</td>
+            </tr>
+            <tr>
+                <td>Email address for the test</td><td>Value</td>
+            </tr>
+            <tr>
+                <td colspan="3"><hr></td>
+            </tr>
+            <tr>
+                <td rowspan="2" valign="top">Images server</td>
+                <td>IP Address of the images server</td><td>Value</td>
+            </tr>
+            <tr>
+                <td>Location of the images on the images server</td><td>Value</td>
+            </tr>
+            <tr>
+                <td colspan="3"><hr></td>
+            </tr>
+            <tr>
+                <td rowspan="4" valign="top">Network 1 related information</td>
+                <td>Network 1 IP network address (ex. 10.10.10.0)</td><td>Value</td>
+            </tr>
+                <td>Network 1 IP subnetmask (ex. 255.255.255.0)</td><td>Value</td>
+            <tr>
+                <td>Network 1 Default gateway (ex. 10.10.10.254)</td><td>Value</td>
+            </tr>
+            <tr>
+                <td>Network 1 VLAN ID</td><td>Value</td>
+            </tr>
+            <tr>
+                <td colspan="3"><hr></td>
+            </tr>
+            <tr>
+                <td rowspan="4" valign="top">Network 2 related information</td>
+                <td>Network 2 IP network address (ex. 10.10.20.0)</td><td>Value</td>
+            </tr>
+                <td>Network 2 IP subnetmask (ex. 255.255.255.0)</td><td>Value</td>
+            <tr>
+                <td>Network 2 Default gateway (ex. 10.10.20.254)</td><td>Value</td>
+            </tr>
+            <tr>
+                <td>Network 2 VLAN ID</td><td>Value</td>
+            </tr>
+            <tr>
+                <td colspan="3"><hr></td>
+            </tr>
+            <tr>
+                <td>Workshop number to be run</td><td colspan="2">Value</td>
+            </tr>
+            <tr>
+                <td colspan="3"><hr></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center"><input type="submit" value="Send Now!">&nbsp;&nbsp;<input type="reset" value="Send Now!"></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</center>
+</body>
+</html>

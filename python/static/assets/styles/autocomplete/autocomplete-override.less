@@ -1,0 +1,48 @@
+// Copyright (c) 2016 Nutanix Inc. All rights reserved.
+
+/*
+ * Nutanix overrides for the autocomplete component
+ */
+
+.ui-autocomplete.ui-menu {
+  border-color: @dropdown-border;
+  box-sizing: border-box;
+
+  &.modal-autocomplete {
+    z-index: @zindex-modal + 1 !important; // override inline css
+  }
+
+  .ui-menu-item a {
+    font-family: @baseFont;
+    font-size: @font-size-regular;
+    font-weight: @font-weight-medium;
+    transition: none;
+  }
+}
+
+.ui-menu-item label {
+  cursor: pointer !important;
+}
+
+.ui-autocomplete.ui-menu .ui-state-hover,
+.n-navigation .ui-state-hover {
+  border: 1px solid @blue_1 !important;
+  background: @blue_2 !important;
+  color: @white_1;
+  border-radius: 0;
+}
+
+// This is for the ability to add an additional menu item dynamically
+// We visually set it apart by making it look like a link
+ul.ui-autocomplete > li.extra-menu {
+  border-top: 1px solid @border_color_2;
+  padding: 6px 0;
+
+  > a {
+    color: @blue_2;
+
+    &:hover {
+      color: @semi-white;
+    }
+  }
+}

@@ -1,0 +1,278 @@
+@font-face {
+  font-family: 'Ntnx';
+  font-weight: 300;
+  src: url('../../../app/assets/fonts/ntnx/Ntnx-Thin.woff') format('woff'),
+  url('../../../app/assets/fonts/ntnx/Ntnx-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ntnx';
+  font-weight: 400;
+  src: url('../../../app/assets/fonts/ntnx/Ntnx-Regular.woff') format('woff'),
+  url('../../../app/assets/fonts/ntnx/Ntnx-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ntnx';
+  font-weight: 500;
+  src: url('../../../app/assets/fonts/ntnx/Ntnx-Medium.woff') format('woff'),
+  url('../../../app/assets/fonts/ntnx/Ntnx-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ntnx';
+  font-weight: 600;
+  src: url('../../../app/assets/fonts/ntnx/Ntnx-Semibold.woff') format('woff'),
+  url('../../../app/assets/fonts/ntnx/Ntnx-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ntnx';
+  font-weight: 700;
+  src: url('../../../app/assets/fonts/ntnx/Ntnx-Bold.woff') format('woff'),
+  url('../../../app/assets/fonts/ntnx/Ntnx-Bold.ttf') format('truetype');
+}
+
+html {
+  font: 400 14px/10px "Ntnx", san-serif;
+  text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  background-color: #F2F4F6;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  box-sizing: content-box;
+  font-family: 'Ntnx', Helvetica Neue, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+h1 {
+  font: 200 29px/20px "Ntnx", san-serif;
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #7C8D9F;
+}
+
+h3 {
+  font: 500 14px/10px "Ntnx", san-serif;
+  color: #627386;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.min-separator {
+  width: 40px;
+  height: 1px;
+  border-bottom: 1px solid #D5DAE0;
+  margin-bottom: 15px;
+}
+
+p {
+  font: 400 14px/22px "Ntnx", san-serif;
+  color: #627386;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+p a {
+  color: #22A5F7;
+  font: 400 14px/10px "Ntnx", san-serif;
+  text-decoration: none;
+}
+
+p a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+h4 {
+  font: 400 14px/10px "Ntnx", san-serif;
+  line-height: 9pt;
+  display: block;
+  height: 10px;
+  font-weight: 500;
+}
+
+h4 code {
+  font-weight: 400;
+  color: #7C8D9F;
+  padding-left: 10px;
+}
+
+h4 code kbd {
+  margin: 0 7px;
+}
+
+span {
+  line-height: 10px;
+  height: 10px;
+  display: block;
+}
+
+header {
+  height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: "";
+  background-color: #22272E;
+  color: transparent;
+}
+
+.logo {
+  position: absolute;
+  bottom: 100px;
+}
+
+.primary {
+  margin: 0;
+  border-radius: 4px;
+  padding: 11px 15px;
+  color: #FFFFFF;
+  font: 400 14px/10px "Ntnx", san-serif;
+  border: none;
+  text-decoration: none;
+  background-color: #22A5F7;
+  outline: none;
+}
+
+.primary:hover {
+  color: #FFFFFF;
+  cursor: pointer;
+  background-color: #1f88de;
+}
+
+.primary:active {
+  color: #FFFFFF;
+  background-color: #1b6dc6;
+}
+
+.primary span {
+  height: 10px;
+  display: block;
+  font-weight: 500;
+  line-height: 9pt;
+}
+
+.container {
+  height: calc(100% - 60px);
+  width: calc(400px - 40px);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: 50px auto;
+  overflow-x: hidden;
+  box-sizing: content-box;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.actions .primary {
+  margin: 0;
+  border-radius: 4px;
+  padding: 11px 15px;
+  color: #FFFFFF;
+  font: 400 14px/10px "Ntnx", san-serif;
+  border: none;
+  text-decoration: none;
+  background-color: #22A5F7;
+  outline: none;
+  margin-right: 10px;
+}
+
+.actions .primary:hover {
+  color: #FFFFFF;
+  cursor: pointer;
+  background-color: #1f88de;
+}
+
+.actions .primary:active {
+  color: #FFFFFF;
+  background-color: #1b6dc6;
+}
+
+.actions .primary span {
+  height: 10px;
+  display: block;
+  font-weight: 500;
+  line-height: 9pt;
+}
+
+.actions .secondary {
+  border: 1px solid #D5DAE0;
+  border-radius: 4px;
+  padding: 11px 15px;
+  color: #22272E;
+  font: 400 14px/10px "Ntnx", san-serif;
+  text-decoration: none;
+  background-color: #FFFFFF;
+  margin: 0;
+  outline: none;
+  transition: box-shadow 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: none;
+  margin-bottom: 0;
+}
+
+.actions .secondary:hover {
+  color: #22A5F7;
+  cursor: pointer;
+}
+
+.actions .secondary:active {
+  color: #91d2fb;
+}
+
+.actions .secondary span {
+  height: 10px;
+  display: block;
+  font-weight: 500;
+  line-height: 9pt;
+}
+
+.actions .secondary:hover {
+  box-shadow: 0 9px 9px 0 rgba(0, 0, 0, 0.02), 0 3px 3px 0 rgba(0, 0, 0, 0.02), 0 1px 1px 0 rgba(0, 0, 0, 0.02);
+}
+
+.actions .secondary span {
+  height: 10px;
+  display: block;
+  font-weight: 500;
+  line-height: 9pt;
+}
+
+.link {
+  color: #22A5F7;
+  font: 400 14px/10px "Ntnx", san-serif;
+  text-decoration: none;
+  text-decoration-color: #1856ad;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

@@ -1,0 +1,378 @@
+// Copyright (c) 2013 Nutanix Inc. All rights reserved.
+
+/*
+ * Nutanix overrides for the fancy select component
+ */
+
+// Mixins used here and in popups-base.less (to override the overflowing styles)
+#fs() {
+  &.vars {
+    @fs-color-text:                  @dark_2;
+    @fs-color-text-hover:            @dropdown-bg;
+    @fs-color-background:            @dropdown-bg;
+    @fs-color-background-hover:      @blue_2;
+    @fs-color-border:                @dark_7;
+    @fs-color-border-hover:          @blue_1;
+    @fs-color-focus:                 @blue_2;
+    @fs-color-delimiter:             @dark_9;
+    @fs-color-shadow:                fade(@dark_2, 5%);
+    @fs-color-text-disabled:         @dark_5;
+    @fs-color-background-disabled:   @dark_9;
+    @fs-color-border-disabled:       @dark_7;
+
+    @fs-font-weight:                 @font-weight-medium;
+    @fs-icon-size:                   6px;
+
+    @fs-border-width:                1px;
+    @fs-spacing:                     10px;
+    @fs-icon-width:                  6px;
+    @fs-icon-selected-width:         8px;
+    @fs-icon-height:                 4px;
+    @fs-icon-line-height:            2px;
+    @fs-h-padding:                   10px;
+    @fs-h-padding-icon:              @fs-h-padding + @fs-icon-width + @fs-spacing;
+    @fs-v-padding:                   10px;
+    @fs-v-padding-open:              @fs-v-padding + @fs-border-width;
+    @fs-border-radius:               @border-radius-base;
+    @fs-list-position:               100%;
+    @fs-icon-position:               ((@single-line-height-regular / 2) + @fs-v-padding) - (@fs-icon-height / 2);
+  }
+
+  &.trigger {
+    #fs.vars();
+
+    &::after {
+      content: 'z';
+      top: @fs-icon-position;
+      bottom: auto;
+    }
+
+    &.open {
+      border: @fs-border-width solid @fs-color-border;
+      border-bottom-width: 0;
+      border-radius: @fs-border-radius @fs-border-radius 0 0;
+      padding-top: @fs-v-padding;
+      padding-bottom: @fs-v-padding-open;
+
+      &::after {
+        content: 'w';
+      }
+    }
+  }
+
+  &.options {
+    #fs.vars();
+
+    top: inherit;
+    margin-top: -@fs-border-width;
+    bottom: 0;
+    margin-bottom: auto;
+
+    &.open {
+      top: @fs-list-position;
+      bottom: inherit;
+      border-radius: 0 0 @fs-border-radius @fs-border-radius;
+      box-shadow:
+        // border-left
+        inset @fs-border-width 0 0 0 @fs-color-border,
+        // border-right
+        inset  -@fs-border-width 0 0 0 @fs-color-border,
+        // border-bottom
+        inset 0 -@fs-border-width 0 0 @fs-color-border,
+        // border-top
+        inset 0 @fs-border-width 0 0 @fs-color-delimiter,
+        0 2px 2px 0 @fs-color-shadow;
+
+      li {
+        &:first-child {
+          border-radius: 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 @fs-border-radius @fs-border-radius;
+        }
+      }
+    }
+  }
+
+  &.triggerUpward {
+    #fs.vars();
+
+    &::after {
+      content: 'w';
+    }
+
+    &.open {
+      border: @fs-border-width solid @fs-color-border;
+      border-top-width: 0;
+      border-radius: 0 0 @fs-border-radius @fs-border-radius;
+      padding-top: @fs-v-padding-open;
+      padding-bottom: @fs-v-padding;
+
+      &::after {
+        content: 'z';
+        top: auto;
+        bottom: @fs-icon-position;
+      }
+    }
+  }
+
+  &.optionsUpward {
+    #fs.vars();
+
+    top: auto;
+    margin-top: 0;
+    bottom: @fs-list-position;
+    margin-bottom: -@fs-border-width;
+    transition: none;
+
+    &.open {
+      top: auto;
+      bottom: @fs-list-position;
+      border-radius: @fs-border-radius @fs-border-radius 0 0;
+      box-shadow:
+        // border-left
+        inset @fs-border-width 0 0 0 @fs-color-border,
+        // border-right
+        inset  -@fs-border-width 0 0 0 @fs-color-border,
+        // border-bottom
+        inset 0 -@fs-border-width 0 0 @fs-color-delimiter,
+        // border-top
+        inset 0 @fs-border-width 0 0 @fs-color-border;
+      transition: none;
+
+      li {
+        &:first-child {
+          border-radius: @fs-border-radius @fs-border-radius 0 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+div.fancy-select {
+
+  // Local Vars
+  #fs.vars();
+
+  // Style
+  .font-no-blank(regular);
+
+  font-weight: @font-weight-regular;
+  text-transform: none;
+  color: @fs-color-text;
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 200px;
+  box-sizing: border-box;
+
+  select:focus + div.trigger:not(.open) {
+    border: @fs-border-width solid @fs-color-focus;
+    box-shadow: 0 0 0 2px fade(@fs-color-focus, 15%);
+  }
+
+  &.-no-border {
+    .-fancy-select-without-border;
+  }
+
+  div.trigger {
+    #fs.trigger();
+
+    padding: @fs-v-padding @fs-h-padding-icon @fs-v-padding @fs-h-padding;
+    background: @fs-color-background;
+    border: @fs-border-width solid @fs-color-border;
+    color: @fs-color-text;
+    box-shadow: none;
+    width: 100%;
+    box-sizing: border-box;
+    transition: none;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      font-family: ss-nutanix;
+      font-size: @fs-icon-size;
+      border: none;
+      width: @fs-icon-width;
+      height: @fs-icon-height;
+      line-height: @fs-icon-line-height;
+    }
+
+    &.open {
+      background: @fs-color-background;
+      color: @fs-color-text;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &.overflowing {
+      #fs.triggerUpward();
+    }
+  }
+
+  &.n-select-options-align-right {
+    ul.options {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  // Dropdown (default state is inactive)
+  ul.options {
+    #fs.options();
+
+    background: @fs-color-background;
+    border: 0;
+    min-width: 0;
+    max-height: 204px;
+    width: 100%;
+    padding: 0;
+    overflow: auto;
+    box-sizing: border-box;
+    transition: none;
+
+    // Dropdown active state
+    &.open {
+      transition: none;
+    }
+
+    &.overflowing {
+      #fs.optionsUpward();
+    }
+
+    li {
+      .text-ellipse;
+
+      padding: @fs-v-padding @fs-h-padding-icon @fs-v-padding @fs-h-padding;
+      border: @fs-border-width solid transparent;
+      margin: -@fs-border-width 0;
+      color: @fs-color-text;
+      overflow: hidden;
+      position: relative;
+      transition: none;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.selected {
+        background: none;
+        color: @fs-color-text;
+        border-color: transparent;
+
+        &::before {
+          content: 'J';
+          font-size: @fs-icon-size + 2px;
+          display: inline-block;
+          position: absolute;
+          font-family: ss-nutanix;
+          right: @fs-h-padding;
+          margin-top: 0;
+          width: @fs-icon-selected-width;
+          height: @fs-icon-height;
+          line-height: @fs-icon-line-height;
+          top: @fs-icon-position;
+        }
+      }
+
+      &.disabled {
+        background-color: @light-gray-3;
+        pointer-events: none;
+        border-left: 1px solid @light-gray-1;
+        border-right: 1px solid @light-gray-1;
+        color: @gray-2;
+
+        &:last-child {
+          border-bottom: 1px solid @light-gray-1;
+        }
+      }
+
+      &.hover {
+        background: @fs-color-background-hover;
+        border-color: @fs-color-border-hover;
+        color: @fs-color-text-hover;
+      }
+    }
+  }
+
+  &.disabled {
+    div.trigger {
+      color: @fs-color-text-disabled;
+      background-color: @fs-color-background-disabled;
+      border-color: @fs-color-border-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  // Make fancy select bottom-anchored (opens upward)
+  &.fancy-select-bottom-anchor {
+    div.trigger {
+      &,
+      &.overflowing {
+        #fs.triggerUpward();
+      }
+    }
+
+    ul.options {
+      &,
+      &.overflowing {
+        #fs.optionsUpward();
+      }
+    }
+
+    &.-no-border {
+      .-fancy-select-without-border;
+    }
+  }
+
+  // Make fancy select top-anchored (opens downward)
+  &.fancy-select-top-anchor {
+    div.trigger {
+      &,
+      &.overflowing {
+        #fs.trigger();
+      }
+    }
+
+    ul.options {
+      &,
+      &.overflowing {
+        #fs.options();
+      }
+    }
+  }
+}
+
+.-fancy-select-without-border {
+  .trigger {
+    .-clear-border;
+
+    &.open {
+      .-clear-border;
+
+      &.overflowing {
+        .-clear-border;
+      }
+    }
+  }
+
+  .trigger:not(.open) {
+    .-clear-border;
+  }
+}
+
+.-clear-border {
+  border: 0;
+  box-shadow: none;
+}

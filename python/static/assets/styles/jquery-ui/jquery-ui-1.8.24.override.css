@@ -1,0 +1,20 @@
+/*!
+ * Copyright (c) 2012 Nutanix Inc. All rights reserved.
+ *
+ * jQuery UI CSS Framework 1.8.24 (Override)
+ *
+ * An override CSS framework for customizing the Nutanix Web Console.
+ */
+
+/* @jQuery UI slider for enitity form of storage pool > diskSliderWrapper
+ * - override the slider color
+ */
+.diskSliderWrapper .ui-widget-header {
+  border: 1px solid #dedede;
+  background: #13A6EB; /* removed the image */
+  color: #ffffff;
+  font-weight: bold;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}

@@ -1,0 +1,464 @@
+@font-face{
+font-family:'Nutanix Soft';
+font-weight:200;
+src:url('../../../fonts/ntnx/NutanixSoft-Thin.eot');
+src:url('../../../fonts/ntnx/NutanixSoft-Thin.eot?iefix') format('eot'),url('../../../fonts/ntnx/NutanixSoft-Thin.woff') format('woff'),url('../../../fonts/ntnx/NutanixSoft-Thin.ttf') format('truetype');
+}
+@font-face{
+font-family:'Nutanix Soft';
+font-weight:400;
+src:url('../../../fonts/ntnx/NutanixSoft-Regular.eot');
+src:url('../../../fonts/ntnx/NutanixSoft-Regular.eot?iefix') format('eot'),url('../../../fonts/ntnx/NutanixSoft-Regular.woff') format('woff'),url('../../../fonts/ntnx/NutanixSoft-Regular.ttf') format('truetype');
+}
+@font-face{
+font-family:'Nutanix Soft';
+font-weight:500;
+src:url('../../../fonts/ntnx/NutanixSoft-Medium.eot');
+src:url('../../../fonts/ntnx/NutanixSoft-Medium.eot?iefix') format('eot'),url('../../../fonts/ntnx/NutanixSoft-Medium.woff') format('woff'),url('../../../fonts/ntnx/NutanixSoft-Medium.ttf') format('truetype');
+}
+@font-face{
+font-family:'Nutanix Soft';
+font-weight:600;
+src:url('../../../fonts/ntnx/NutanixSoft-Semibold.eot');
+src:url('../../../fonts/ntnx/NutanixSoft-Semibold.eot?iefix') format('eot'),url('../../../fonts/ntnx/NutanixSoft-Semibold.woff') format('woff'),url('../../../fonts/ntnx/NutanixSoft-Semibold.ttf') format('truetype');
+}
+@font-face{
+font-family:'Nutanix Soft';
+font-weight:700;
+src:url('../../../fonts/ntnx/NutanixSoft-Bold.eot');
+src:url('../../../fonts/ntnx/NutanixSoft-Bold.eot?iefix') format('eot'),url('../../../fonts/ntnx/NutanixSoft-Bold.woff') format('woff'),url('../../../fonts/ntnx/NutanixSoft-Bold.ttf') format('truetype');
+}
+@font-face{
+font-family:'ProximaNovaSoft';
+font-weight:400;
+src:url('../../../fonts/ProximaNovaSoft-Regular-webfont.eot');
+src:url('../../../fonts/ProximaNovaSoft-Regular-webfont.eot?iefix') format('eot'),url('../../../fonts/ProximaNovaSoft-Regular-webfont.woff') format('woff'),url('../../../fonts/ProximaNovaSoft-Regular-webfont.ttf') format('truetype'),url('../../../fonts/ProximaNovaSoft-Regular-webfont.svg#webfont') format('svg');
+}
+@font-face{
+font-family:'ProximaNovaSoft';
+font-weight:500;
+src:url('../../../fonts/ProximaNovaSoft-Medium-webfont.eot');
+src:url('../../../fonts/ProximaNovaSoft-Medium-webfont.eot?iefix') format('eot'),url('../../../fonts/ProximaNovaSoft-Medium-webfont.woff') format('woff'),url('../../../fonts/ProximaNovaSoft-Medium-webfont.ttf') format('truetype'),url('../../../fonts/ProximaNovaSoft-Medium-webfont.svg#webfont') format('svg');
+}
+@font-face{
+font-family:'ProximaNovaSoft';
+font-weight:600;
+src:url('../../../fonts/ProximaNovaSoft-Semibold-webfont.eot');
+src:url('../../../fonts/ProximaNovaSoft-Semibold-webfont.eot?iefix') format('eot'),url('../../../fonts/ProximaNovaSoft-Semibold-webfont.woff') format('woff'),url('../../../fonts/ProximaNovaSoft-Semibold-webfont.ttf') format('truetype'),url('../../../fonts/ProximaNovaSoft-Semibold-webfont.svg#webfont') format('svg');
+}
+@font-face{
+font-family:'ProximaNovaSoft';
+font-weight:700;
+src:url('../../../fonts/ProximaNovaSoft-Bold-webfont.eot');
+src:url('../../../fonts/ProximaNovaSoft-Bold-webfont.eot?iefix') format('eot'),url('../../../fonts/ProximaNovaSoft-Bold-webfont.woff') format('woff'),url('../../../fonts/ProximaNovaSoft-Bold-webfont.ttf') format('truetype'),url('../../../fonts/ProximaNovaSoft-Bold-webfont.svg#webfont') format('svg');
+}
+@font-face{
+font-family:'ss-nutanix';
+src:url('../../../fonts/ss-nutanix-regular-webfont.eot');
+src:url('../../../fonts/ss-nutanix-regular-webfont.eot?#iefix') format('embedded-opentype'),url('../../../fonts/ss-nutanix-regular-webfont.woff') format('woff'),url('../../../fonts/ss-nutanix-regular-webfont.ttf') format('truetype'),url('../../../fonts/ss-nutanix-regular-webfont.svg#ss-miniregular') format('svg');
+font-weight:normal;
+font-style:normal;
+}
+[data-icon]::before{
+content:attr(data-icon);
+speak:none;
+font-family:ss-nutanix;
+font-weight:normal;
+font-style:normal;
+}
+#monkey_404{
+width:800px;
+height:480px;
+}
+@keyframes levitate-inner{
+0%{
+transform:translate(0,0) scale(1);
+}
+50%{
+transform:translate(0,5px) scale(1);
+}
+100%{
+transform:translate(0,0) scale(1);
+}
+}
+@keyframes levitate{
+0%{
+transform:translate(0,0) scale(1);
+}
+50%{
+transform:translate(0,10px) scale(1);
+}
+100%{
+transform:translate(0,0) scale(1);
+}
+}
+@keyframes face-rotate{
+0%,
+2%{
+transform:rotateZ(0deg);
+}
+4%{
+transform:rotateZ(-1deg);
+}
+6%,
+8%{
+transform:rotateZ(0deg);
+}
+10%{
+transform:rotateZ(-1deg);
+}
+12%,
+14%{
+transform:rotateZ(0deg);
+}
+16%{
+transform:rotateZ(-1deg);
+}
+18%,
+28%{
+transform:rotateZ(0deg);
+}
+60%{
+transform:rotateZ(-1deg);
+}
+32%,
+100%{
+transform:rotateZ(0deg);
+}
+}
+@keyframes blink-l{
+0%,
+2%{
+transform:rotateX(0deg);
+}
+4%{
+transform:rotateX(80deg);
+}
+6%,
+8%{
+transform:rotateX(40deg);
+}
+10%{
+transform:rotateX(80deg);
+}
+12%,
+14%{
+transform:rotateX(40deg);
+}
+16%{
+transform:rotateX(80deg);
+}
+18%,
+28%{
+transform:rotateX(0deg);
+}
+30%{
+transform:rotateX(80deg);
+}
+32%,
+100%{
+transform:rotateX(0deg);
+}
+}
+@keyframes blink-r{
+0%,
+28%{
+transform:rotateX(0deg);
+}
+30%{
+transform:rotateX(80deg);
+}
+32%,
+100%{
+transform:rotateX(0deg);
+}
+}
+@keyframes sword{
+0%,
+5%{
+transform:rotate(-40deg);
+}
+67%,
+95%{
+transform:rotate(50deg);
+}
+100%{
+transform:rotate(-40deg);
+}
+}
+@keyframes sword2{
+0%,
+5%{
+transform:rotate(-40deg) translate(3px,19px);
+}
+67%,
+95%{
+transform:rotate(50deg) translate(3px,19px);
+}
+100%{
+transform:rotate(-40deg) translate(3px,19px);
+}
+}
+@keyframes twinkle{
+0%{
+transform:rotateZ(0deg);
+}
+100%{
+transform:rotateZ(360deg);
+}
+}
+#monkey_404 .st0{
+fill:#F2F4F6;
+}
+#monkey_404 .st1{
+fill:#FFFFFF;
+}
+#monkey_404 .st2{
+fill:none;
+stroke:#7C8D9F;
+stroke-width:3;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st3{
+fill:#F2F4F6;
+stroke:#7C8D9F;
+stroke-width:3;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st4{
+fill:#FFFFFF;
+stroke:#7C8D9F;
+stroke-width:3;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st5{
+fill:none;
+stroke:#7C8D9F;
+stroke-width:3;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st6{
+fill:none;
+stroke:#7C8D9F;
+stroke-width:4;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st7{
+fill:#FFFFFF;
+stroke:#7C8D9F;
+stroke-width:2;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st8{
+fill:#7C8D9F;
+}
+#monkey_404 .st9{
+fill:#7C8D9F;
+}
+#monkey_404 .st10{
+fill:none;
+stroke:#7C8D9F;
+stroke-width:2;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st11{
+fill:#FFFFFF;
+}
+#monkey_404 .st12{
+fill:#FFFFFF;
+stroke:#7C8D9F;
+stroke-width:3;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st13{
+fill:#FFFFFF;
+stroke:#7C8D9F;
+stroke-width:3;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st14{
+fill:none;
+stroke:#7C8D9F;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st15{
+fill:none;
+stroke:#7C8D9F;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st_shadow_inner{
+fill:#000000;
+stroke:#000000;
+stroke-width:3;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st_shadow{
+fill:none;
+stroke:#000000;
+stroke-linecap:round;
+stroke-linejoin:round;
+stroke-miterlimit:10;
+}
+#monkey_404 .st_shadow_dots{
+fill:#000000;
+}
+#monkey_404 .st_sword_shadow{
+fill:#FFFFFF;
+}
+#monkey_404 #number_4,
+#monkey_404 #number_4_2,
+#monkey_404 #number_0,
+#monkey_404 #number_0_shadow_path{
+animation:levitate-inner 3s infinite ease-in-out;
+}
+#monkey_404 #zelda,
+#monkey_404 #tetris,
+#monkey_404 #moon,
+#monkey_404 #star_a,
+#monkey_404 #star_b,
+#monkey_404 #star_c,
+#monkey_404 #star_d,
+#monkey_404 #sword_group{
+animation:levitate 3s infinite ease-in-out;
+}
+#monkey_404 #number_4{
+animation-delay:0;
+animation-duration:3s;
+}
+#monkey_404 #number_0,
+#monkey_404 #number_0_shadow_path{
+animation-delay:0.5s;
+animation-duration:3s;
+}
+#monkey_404 #number_0-shadow{
+opacity:0.1;
+-webkit-mask:url(#mask1);
+mask:url(#mask1);
+}
+html.ff #monkey_404 #number_0-shadow,
+html.ie #monkey_404 #number_0-shadow{
+opacity:0;
+}
+#monkey_404 #number_4_2{
+animation-delay:1s;
+animation-duration:3s;
+}
+#monkey_404 #face_group,
+#monkey_404 #face_border,
+#monkey_404 #face_border_2{
+transform-origin:220px 275px;
+animation:face-rotate 6s infinite ease-in-out;
+}
+#monkey_404 #eye_left{
+transform-origin:191px 257px;
+animation:blink-l 6s infinite ease-in-out;
+}
+#monkey_404 #eye_right{
+transform-origin:205px 256px;
+animation:blink-r 6s infinite ease-in-out;
+}
+#monkey_404 #arm{
+transform-origin:155px 292px;
+transform:rotateZ(-2deg);
+}
+#monkey_404 #star_a,
+#monkey_404 #star_b,
+#monkey_404 #star_c,
+#monkey_404 #star_d{
+animation:twinkle 8s infinite linear;
+}
+#monkey_404 #star_a{
+transform-origin:643px 338px;
+}
+#monkey_404 #star_b{
+transform-origin:489px 82px;
+}
+#monkey_404 #star_c{
+transform-origin:316px 344px;
+}
+#monkey_404 #star_d{
+transform-origin:126px 182px;
+}
+#monkey_404 #zelda{
+animation-delay:0;
+animation-duration:3s;
+}
+#monkey_404 #tetris{
+animation-delay:1s;
+animation-duration:3s;
+}
+#monkey_404 #moon{
+animation-delay:0.5s;
+animation-duration:3s;
+}
+#monkey_404 #sword_group{
+animation-delay:1.5s;
+animation-duration:3s;
+}
+#monkey_404 #sword{
+transform-origin:458px 206px;
+animation:sword 8s infinite ease-out;
+}
+#monkey_404 #sword-shadow{
+transform:translate(3px,25px);
+transform-origin:458px 206px;
+animation:sword2 8s infinite ease-out;
+}
+body.n-not-found{
+background-color:#FFFFFF;
+font-family:'Nutanix Soft',Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+body.n-not-found .main{
+margin:0 auto;
+padding:50px 0 7px;
+width:477px;
+font-size:26px;
+font-weight:600;
+color:#9AA5B5;
+}
+body.n-not-found .sub{
+font-weight:600;
+font-size:16px;
+margin:0 auto;
+color:#B8BFCA;
+width:263px;
+padding-bottom:15px;
+}
+body.n-not-found .sub a{
+margin-left:10px;
+display:inline-block;
+color:#ffbc0b;
+}
+body.n-not-found .image img,
+body.n-not-found .image #monkey_404{
+margin:0 auto;
+display:block;
+}
+body.n-not-found .image img #number_0-shadow,
+body.n-not-found .image #monkey_404 #number_0-shadow{
+opacity:0;
+}
